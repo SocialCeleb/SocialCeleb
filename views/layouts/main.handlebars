@@ -11,11 +11,21 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-        
+
     <link rel="stylesheet" href="https://bootswatch.com/4/cyborg/bootstrap.min.css">
 
     <style media="screen">
-      
+        #fb-btn {
+            margin-top: 20px
+        }
+
+        ;
+        #profile,
+        #logout {
+            display: none
+        }
+
+        ;
     </style>
 
 
@@ -36,6 +46,7 @@
                 statusChangeCallback(response);
             });
         };
+
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) { return; }
@@ -45,8 +56,8 @@
         }(document, 'script', 'facebook-jssdk'));
 
         function statusChangeCallback(response) {
-              if (response.status === 'connected') {
-                console.log("Logged in + authenticated")
+            if(response.status === 'connected'){
+                console.log("Logged in and authenticated");
                 setElements(true);
                 testAPI();
                 // the user is logged in and has authenticated your
@@ -55,14 +66,14 @@
                 // request, and the time the access token 
                 // and signed request each expire
                 var uid = response.authResponse.userID;
-                 var accessToken = response.authResponse.accessToken;
-            } else  {
+                var accessToken = response.authResponse.accessToken;
+            } else {
                 (response.status === 'not_authorized')
-                console.log("Not logged in + authenticated")
+                console.log("Not logged in + not authenticated")
                 setElements(false);
             }
         }
-        
+
 
         function checkLoginState() {
             FB.getLoginStatus(function (response) {
@@ -71,8 +82,9 @@
         }
 
         function testAPI() {
-            FB.api("/me?fields=first_name,last_name,friends", function (response) {
-                if (response && !response.error) {
+            FB.api("/me?fields=first_name,last_name,birthday,location,friends", function (response) {
+                //"/me?fields=first_name,last_name,birthday,friends"
+                if(response && !response.error) {
                     console.log(response);
                     buildProfile(response);
                 }
@@ -80,17 +92,25 @@
         }
 
         function buildProfile(user) {
-            //var userFn = user.first_name;
-            //var userLn = user.last_name;
-            //var userDay = user.birthday;
-            //var userFriends = user.friends.summary;
+            var userFn = user.first_name;
+            var userLn = user.last_name;
+            var userDay = user.birthday;
+            var userFriends = user.friends.summary;
+            var userLocation = user.location;
 
             let profile = `
-             <h3> ${userFn} ${userLn}  </h3>
-            <h3> ${userFn} </h3>
-            <h3> ${userFn} </h3>
-            <h3> ${userFn} </h3>
+            <h3> ${userFn} ${userLn} </h3>
+            <ul class="list-group">
+                <h3> ${userFn} </h3>
+                <h3> ${userLn} </h3>
+                <h3> ${userDay} </h3>
+                <h3> ${userFriends} </h3>
+                <h3> ${userLocation} </h3>
+
+                </ul>
             `
+
+            document.getElementById("profile").innerHTML = profile;
         };
 
         function setElements(isLoggedIn) {
@@ -98,12 +118,12 @@
                 document.getElementById("logout").style.display = "none";
                 document.getElementById("profile").style.display = "block";
                 document.getElementById("fb-btn").style.display = "none";
-                document.getElementById("greeting").style.display = "block";
+                document.getElementById("heading").style.display = "none";
             } else {
-                document.getElementById("logout").style.display = "block";
-                document.getElementById("profile").style.display = "block";
+                document.getElementById("logout").style.display = "none";
+                document.getElementById("profile").style.display = "none";
                 document.getElementById("fb-btn").style.display = "block";
-                document.getElementById("greeting").style.display = "block";
+                document.getElementById("heading").style.display = "block";
 
             }
         }
@@ -114,9 +134,7 @@
             });
         }
 
-    </script> 
-    
-    {{{ body }}}
+    </script> {{{ body }}}
 
 
 
