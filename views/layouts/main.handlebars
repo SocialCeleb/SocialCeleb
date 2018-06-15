@@ -56,7 +56,7 @@
         }(document, 'script', 'facebook-jssdk'));
 
         function statusChangeCallback(response) {
-            if(response.status === 'connected'){
+            if (response.status === 'connected') {
                 console.log("Logged in and authenticated");
                 setElements(true);
                 testAPI();
@@ -68,7 +68,7 @@
                 var uid = response.authResponse.userID;
                 var accessToken = response.authResponse.accessToken;
             } else {
-                (response.status === 'not_authorized')
+                (response.status === 'not-authorized')
                 console.log("Not logged in + not authenticated")
                 setElements(false);
             }
@@ -82,57 +82,107 @@
         }
 
         function testAPI() {
-            FB.api("/me?fields=first_name,last_name,birthday,location,friends", function (response) {
-                //"/me?fields=first_name,last_name,birthday,friends"
-                if(response && !response.error) {
+            FB.api("/me?fields=first_name,last_name,birthday,location,hometown,friends", function (response) { 
+                if (response && !response.error) {
                     console.log(response);
                     buildProfile(response);
+                    //dataAPI(response);
                 }
             })
         }
 
-        function buildProfile(user) {
-            var userFn = user.first_name;
-            var userLn = user.last_name;
-            var userDay = user.birthday;
-            var userFriends = user.friends.summary;
-            var userLocation = user.location;
+        // function testAPI() {
+            // FB.api("/me?fields=about,fan_count,website", function (response) {
+                // var person = "Nirmal Shah"; 
+                //"/me?fields=first_name,last_name,birthday,friends"
+                // if (response && !response.error) {
+                   //  console.log(response);
+                    //buildProfile(response);
+                    //dataAPI(response);
+                //} else {
+                   // console.log('error', response);
+               // }
+           // })
+       // }
 
-            let profile = `
-            <h3> ${userFn} ${userLn} </h3>
+        // function dataAPI(user) {
+           // console.log("inside dataAPI");
+            /* make the API call */
+            //FB.api(
+              //  "/244913019595852/app_insights/api_calls",
+                //{
+                  //  "period": "daily",
+                    //"breakdowns[0]": "client",
+                   // "name": "api_calls"
+                //},
+                //function (response) {
+                  //  console.log("inside callback function",//response)
+                    //if (response && !response.error) {
+                      //  console.log("post impressions data", response);
+                    //};
+               // });
+       // };
+
+
+            // function testAPI() {
+            //  FB.api(
+            //   "{object_id}/insights/{page_engaged_users}",
+            //function (response) {
+            // if (response && !response.error) {
+            /* handle the result */
+            //}
+            //}
+            //);
+            //};
+
+
+            function buildProfile(user) {
+                var userFn = user.first_name;
+                var userLn = user.last_name;
+                var userDay = user.birthday;
+                var userFriends = user.friends.summary.total_count;
+                var userHometown = user.hometown.name;
+                var userLocation = user.location.name;
+
+                let profile = `
+            <h3> User Information </h3>
             <ul class="list-group">
-                <h3> ${userFn} </h3>
-                <h3> ${userLn} </h3>
-                <h3> ${userDay} </h3>
-                <h3> ${userFriends} </h3>
-                <h3> ${userLocation} </h3>
+                <h3> First Name: ${userFn} </h3>
+                <h3> Last Name: ${userLn} </h3>
+                <h3> Birthday: ${userDay} </h3>
+                <h3> Total Number of Friends: ${userFriends} </h3>
+                <h3> Hometown: ${userHometown} </h3>
+                <h3> Location: ${userLocation} </h3>
 
                 </ul>
             `
+                console.log("ALL INFO" + user);
+                console.log(userLocation)
 
-            document.getElementById("profile").innerHTML = profile;
-        };
+                document.getElementById("profile").innerHTML = profile;
+            };
 
-        function setElements(isLoggedIn) {
-            if (isLoggedIn) {
-                document.getElementById("logout").style.display = "none";
-                document.getElementById("profile").style.display = "block";
-                document.getElementById("fb-btn").style.display = "none";
-                document.getElementById("heading").style.display = "none";
-            } else {
-                document.getElementById("logout").style.display = "none";
-                document.getElementById("profile").style.display = "none";
-                document.getElementById("fb-btn").style.display = "block";
-                document.getElementById("heading").style.display = "block";
+            function setElements(isLoggedIn) {
+                if (isLoggedIn) {
+                    document.getElementById("logout").style.display = "none";
+                    document.getElementById("profile").style.display = "block";
+                    document.getElementById("fb-btn").style.display = "none";
+                    document.getElementById("heading").style.display = "none";
+                } else {
+                    document.getElementById("logout").style.display = "none";
+                    document.getElementById("profile").style.display = "none";
+                    document.getElementById("fb-btn").style.display = "block";
+                    document.getElementById("heading").style.display = "block";
 
+                }
             }
-        }
 
-        function logout() {
-            FB.logout(function (response) {
-                setElements(false);
-            });
-        }
+            function logout() {
+                FB.logout(function (response) {
+                    setElements(false);
+                });
+            };
+
 
     </script> {{{ body }}}
 
