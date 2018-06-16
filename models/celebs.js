@@ -3,6 +3,8 @@ module.exports = function(sequelize, DataTypes) {
     var Celeb = sequelize.define("Celeb", {
       // Giving the Author model a name of type STRING
       name: DataTypes.STRING
+    }, {
+      timestamps: false,
     });
   
     Celeb.associate = function(models) {
@@ -15,3 +17,6 @@ module.exports = function(sequelize, DataTypes) {
   
     return Celeb;
   };
+
+  // module.exports = Celeb;
+  // Export the model and set it equal to a variable when taking the response from api to put into database. 
