@@ -13,6 +13,6 @@ CREATE TABLE popularity
 	account_type VARCHAR (255) NOT NULL,
     count INTEGER (9999) NOT NULL,
     celeb_id INT NOT NULL,
-	PRIMARY KEY (id),
+	PRIMARY KEY (id),4
     FOREIGN KEY (celeb_id) REFERENCES celebs (id)
 );*/

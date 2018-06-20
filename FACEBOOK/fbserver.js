@@ -19,7 +19,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var fbRoutes = require("./controllers/fb_controller.js")
+var fbRoutes = require("./fb_controller.js")
 
 app.use(fbRoutes);
 

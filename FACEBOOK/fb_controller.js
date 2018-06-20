@@ -6,7 +6,7 @@ console.log("hello from fb_controller");
 
 router.get("/", function (req, res) {
     console.log("req");
-    res.render("index");
+    res.render("../views/index");
 
 });
 
