@@ -27,9 +27,9 @@ app.use(express.static("public"));
 
 // Routes
 // ===========================================
-// require("./controllers/html-routes.js")(app);
-require("./controllers/CelebsApiRoute.js")(app);
-// require("./routes/post-api-routes.js")(app);
+ require("./controllers/HtmlRoute.js")(app);
+  require("./controllers/CelebsApiRoute.js")(app);
+ require("./controllers/PopularityApiRoute.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
