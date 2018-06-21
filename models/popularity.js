@@ -1,5 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Popularity = sequelize.define("Popularity", {
+      
+     
       account_type: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -16,15 +18,16 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: false,
     });
   
-    // Post.associate = function(models) {
-    //   // We're saying that a Post should belong to an Author
-    //   // A Post can't be created without an Author due to the foreign key constraint
-    //   Post.belongsTo(models.Celeb, {
-    //     foreignKey: {
-    //       allowNull: false
-    //     }
-    //   });
-    // };
+    Popularity.associate = function(models) {
+      // We're saying that a Popularity should belong to an Author
+      // A Popularity can't be created without an Celeb due to the foreign key constraint
+      Popularity.belongsTo(models.Celeb, {
+        foreignKey: {
+          name:"CelebId",
+          allowNull: true
+        }
+      });
+    };
   
     return Popularity;
   };

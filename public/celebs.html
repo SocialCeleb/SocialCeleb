@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <title>SocialCeleb</title>
+   
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <!-- Foundation CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Berkshire+Swash|Eater|Faster+One|Pangolin" rel="stylesheet">
+    <!-- Foundation CSS style sheet -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-body">
+            <div class="container">
+                <h2 class="title">
+                  <img width="100" height="100" src="https://www.tcd.ie/Physics/research/groups/vidotto/img/bcool_logo_transp.png">
+                   SOCIAL CELEB,
+                   The easiest way to know how your favourite celebs compare on social media.
+                </h2>
+            </div>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="container">
+            <div class="columns">
+
+                <div class="column">
+                    <div class="card-parent">
+                        <img class="card-img" src="https://nation.com.pk/print_images/medium/2016-10-28/justin-bieber-spends-1k-on-burgers-1477671114-9924.jpg">
+                        <div class="just-title">
+                            <h1 class="blink-out">JUSTIN BEIBER</h1>
+                        </div>
+                        <div class="hidden-body">
+                            <img class="blink-in" src="https://nation.com.pk/print_images/medium/2016-10-28/justin-bieber-spends-1k-on-burgers-1477671114-9924.jpg">
+                            <h1 class="blink-in">Justin Beiber</h1>
+                            <h5 id="type4"></h5>
+                            <h5 id="count3"></h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="card-parent">
+                        <img class="card-img" src="http://d1lofqbqbj927c.cloudfront.net/GT-marca/2017/06/19164931/Katy-Perry-400x300.jpg">
+                        <div class="just-title">
+                            <h1 class="blink-out">KATY PERRY</h1>
+                        </div>
+                        <div class="hidden-body">
+                            <img class="blink-in" src="http://d1lofqbqbj927c.cloudfront.net/GT-marca/2017/06/19164931/Katy-Perry-400x300.jpg">
+                            <h1 class="blink-in">Katy Perry</h1>
+                            <h5 id="count1"></h5>
+                            <h5 id="count2"></h5>
+                        </div>
+                    </div>
+                </div>
+
+            
+
+                <div class="column">
+                    <div class="card-parent">
+                        <img class="card-img" src="http://clipgoo.com/daut/as/f/f/free-download-wallpaper-hd-selena-gomez-hot-high-resolution-figure-full-hq-1080-px-new-2013-latest-wallpapers-for-desktop-background-downloadselena-spring-breakers-wizard_hi-res-fashion-screen-desktop.jpg">
+                        <div class="just-title">
+                            <h1 class="blink-out">SELENA GOMEZ</h1>
+                        </div>
+                        <div class="hidden-body">
+                            <img class="blink-in" src="http://clipgoo.com/daut/as/f/f/free-download-wallpaper-hd-selena-gomez-hot-high-resolution-figure-full-hq-1080-px-new-2013-latest-wallpapers-for-desktop-background-downloadselena-spring-breakers-wizard_hi-res-fashion-screen-desktop.jpg">
+                            <h1 class="blink-in">Selena Gomez</h1>
+                            <h5 id="type5"></h5>
+                            <h5 id="count6"></h5> 
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <hr>
+
+
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+                <div width="40" height="10" >
+                  <canvas id="bar-chart" width="10" height="3" c></canvas>
+              </div>
+              <script src="js/celeb.js"></script>
+</body>
+</html>
+
+
