@@ -18,5 +18,5 @@ module.exports = function(sequelize, DataTypes) {
     return Celeb;
   };
 
-  // module.exports = Celeb;
+  
   // Export the model and set it equal to a variable when taking the response from api to put into database. 
