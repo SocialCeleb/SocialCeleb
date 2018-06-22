@@ -11,8 +11,7 @@ function getCelebs() {
     console.log(names[0])
 //katy
     console.log(names[1])
-  //   selena
-    console.log(names[2])
+  
   
   });
   $.get("/api/popularity", function(data) {
