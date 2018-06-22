@@ -7,4 +7,15 @@ Discontinued using facebook API to call information because of the recent Facebo
 
 Parameters used to determine popularity: users + likes 
 
-Celebrities: Selena Gomez, Katy Perry, Justin Bieber, Cardi B, Vince Staples, Shroud
+Celebrities: Selena Gomez, Katy Perry, Justin Bieber 
+
+Stretch goals as of (06/21/2018)
+
+obstacles
+
+challenges - 
+
+logic - 
+
+limitations - 
+
