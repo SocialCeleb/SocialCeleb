@@ -63,4 +63,4 @@ This was an issue because prior to this addition of the data munger js file, the
 
 Moreoever, the munger js file permitted successful communication between our two tables to store data. On table 1, held data for the id and the celebrity name. On table 2, we used a foreign key, using the id from table one, to allow us to expand our dataset by placing the type of social media and the number of followers.  
 
-
+[Social Celebs](https://nameless-wave-15422.herokuapp.com/) :tada:
